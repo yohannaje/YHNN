@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>YHNN — Linocut & Illustration Prints</title>
+  <meta name="description" content="Limited edition linocut and ink illustration prints by YHNN. Black and white botanical art, birds and hand-lettering.">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <meta name="p:domain_verify" content="f70dca6c3a04aec83a0959a0d68b9866"/>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <div class="top">
+        <div class="logo-circle"></div>
+
+        <h1 class="brand">YHNN</h1>
+
+        <p class="bio">
+          Visual artist exploring fauna, flora and sea through ink, linocut and mark-making.
+        </p>
+
+        <nav>
+          <a href="#" class="nav-link active" data-section="work"> Work</a>
+          <a href="#" class="nav-link" data-section="shop">Shop</a>
+          <a href="#" class="nav-link" data-section="about">About</a>
+        </nav>
+      </div>
+
+      <div class="bottom">
+        <a href="#" class="icon">IG</a>
+        <a href="#" class="icon">✉</a>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+    <div class="masonry">
+
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%2010.jpg"></div>
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%2012.jpg"></div>
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%2011.jpg"></div>
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%20copy.jpg"></div>
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%205.jpg"></div>
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%206.jpg"></div>
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%208.jpg"></div>
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%209.jpg"></div>
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork.jpg"></div>
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%203.jpg"></div>
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%202.jpg"></div>
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%204.jpg"></div>
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%201.jpg"></div>
+      <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%207.jpg"></div>
+      <div class="item"><img src=""></div>
+
+    </div>
+  </main>
+
+</div>
+
+
+<script>
+const links = document.querySelectorAll('.nav-link');
+
+links.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    links.forEach(l => {
+      l.classList.remove('active');
+      l.innerHTML = l.textContent.replace('> ', '');
+    });
+
+    link.classList.add('active');
+    link.innerHTML = '> ' + link.textContent.replace('> ', '');
+
+    // simple content swap (for now just placeholder behavior)
+    const section = link.dataset.section;
+    const masonry = document.querySelector('.masonry');
+
+    if (section === 'about') {
+      masonry.innerHTML = '<div style="max-width:500px; font-size:14px; line-height:1.6;">This is the about section. You can later replace this with a proper layout.</div>';
+    }
+
+  });
+});
+</script>
+
+</body>
+</html>
