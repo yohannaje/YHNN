@@ -58,8 +58,8 @@
   </aside>
 
   <!-- CONTENT -->
-  <main class="content">
-    <div class="masonry">
+  <main class="content" >
+    <div class="section masonry" data-section="work">
 
       <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%2010.jpg"></div>
       <div class="item"><img src="https://ik.imagekit.io/yhnn/Untitled_Artwork%2012.jpg"></div>
@@ -78,34 +78,34 @@
       <div class="item"><img src=""></div>
 
     </div>
+    <div class="section" data-section="about" style="display:none;">
+        <p>Coming Soon!</p>
+    </div>
+    <div class="section" data-section="shop" style="display:none;">
+        <p>Coming Soon!</p>
+    </div>
   </main>
 
 </div>
 
-
 <script>
 const links = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('.section');
 
 links.forEach(link => {
   link.addEventListener('click', (e) => {
     e.preventDefault();
 
-    links.forEach(l => {
-      l.classList.remove('active');
-      l.innerHTML = l.textContent.replace('> ', '');
+    const target = link.dataset.section;
+
+    // 👉 cambiar secciones
+    sections.forEach(sec => {
+      sec.style.display = sec.dataset.section === target ? 'block' : 'none';
     });
 
+    // 👉 actualizar nav (esto es lo que te falta)
+    links.forEach(l => l.classList.remove('active'));
     link.classList.add('active');
-    link.innerHTML = '> ' + link.textContent.replace('> ', '');
-
-    // simple content swap (for now just placeholder behavior)
-    const section = link.dataset.section;
-    const masonry = document.querySelector('.masonry');
-
-    if (section === 'about') {
-      masonry.innerHTML = '<div style="max-width:500px; font-size:14px; line-height:1.6;">This is the about section. You can later replace this with a proper layout.</div>';
-    }
-
   });
 });
 </script>
